@@ -4,7 +4,17 @@
 # Ignore Gradle GUI config
 gradle-app.setting
 
-.idea
+*.idea
+
+*.class
+
+*.gradle
+
+*.bat
+
+*.xml
+
+addressbook-web-tests/gradle/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
