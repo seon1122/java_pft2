@@ -4,9 +4,9 @@
 # Ignore Gradle GUI config
 gradle-app.setting
 
-*.idea
+**.idea/**
 
-*.class
+.class
 
 *.gradle
 
