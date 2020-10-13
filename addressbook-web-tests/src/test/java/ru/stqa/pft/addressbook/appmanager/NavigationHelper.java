@@ -12,4 +12,8 @@ public class NavigationHelper extends HelperBase{
     public void gotoGroupPage() {
         click(By.linkText("groups"));
     }
+
+    public void clickAddNewContact() {
+        click(By.xpath(("//li[@class='all'][1]")));
+    }
 }
