@@ -16,4 +16,8 @@ public class NavigationHelper extends HelperBase{
     public void clickAddNewContact() {
         click(By.xpath(("//li[@class='all'][1]")));
     }
+
+    public void goToHomePage() {
+        click(By.xpath(("//li/a[contains(text(), 'home')]")));
+    }
 }
