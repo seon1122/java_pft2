@@ -30,7 +30,7 @@ public class ApplicationManager {
             wd = new SafariDriver();
         }
         wd = new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/index.php");
         sessionHelper = new SessionHelper(wd);
         navigationHelper = new NavigationHelper(wd);
