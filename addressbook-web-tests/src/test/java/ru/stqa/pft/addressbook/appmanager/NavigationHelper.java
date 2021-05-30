@@ -18,10 +18,6 @@ public class NavigationHelper extends HelperBase{
         click(By.linkText("groups"));
     }
 
-    public void clickAddNewContact() {
-        click(By.xpath(("//li[@class='all'][1]")));
-    }
-
     public void goToHomePage() {
         if (isElementPresent(By.id("maintable"))) {
             return;
