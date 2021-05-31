@@ -3,9 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -36,12 +40,12 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-    public void initContactEdit() {
-        click(By.xpath("//img[@title='Edit']"));
+    public void initContactEditByIndex(int i) {
+        wd.findElements(By.xpath("//img[@title='Edit']")).get(i).click();
     }
 
-    public void selectContact() {
-        click(By.xpath("//input[@type='checkbox' and @name='selected[]']"));
+    public void selectContact(int i) {
+        wd.findElements(By.xpath("//input[@type='checkbox' and @name='selected[]']")).get(i).click();
     }
 
     public void deleteSelectedContacts() {
@@ -69,5 +73,18 @@ public class ContactHelper extends HelperBase {
 
     public boolean isThereAContact() {
         return isElementPresent(By.xpath("//input[@type='checkbox' and @name='selected[]']"));
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
+        for (WebElement element : elements) {
+            String firstName = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
+            String lastName = element.findElement(By.cssSelector("td:nth-child(2)")).getText();
+            int id = Integer.parseInt(element.findElement(By.xpath("//td/input")).getAttribute("value"));
+            ContactData contact = new ContactData(firstName, lastName, null, null, null, null, id);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }
