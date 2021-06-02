@@ -28,6 +28,14 @@ public class GroupHelper extends HelperBase{
         type(By.name("group_footer"), groupData.getFooter());
     }
 
+    public void modifyGroup(int index, GroupData group) {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returntoGroupPage();
+    }
+
     public void initGroupCreation() {
         click(By.name("new"));
     }
