@@ -12,13 +12,13 @@ public class ContactModificationTests extends TestBase{
 
     @Test
     public void contactModificationTest() {
-        app.getNavigationHelper().goToHomePage();
+        app.goTo().goToHomePage();
         if (!app.getContactHelper().isThereAContact()) {
-            app.getNavigationHelper().gotoGroupPage();
-            if (!app.getGroupHelper().isThereAGroup()) {
-                app.getGroupHelper().createGroup(new GroupData("test1", null, "test3"));
+            app.goTo().groupPage();
+            if (app.group().list().size() == 0) {
+                app.group().create(new GroupData("test1", null, "test3"));
             } else {
-                app.getNavigationHelper().goToHomePage();
+                app.goTo().goToHomePage();
             }
             app.getContactHelper().createContact(new ContactData("Test1", "Test2", "Test Address", "0000000000", "test@email.com", "test1"), true);
         }

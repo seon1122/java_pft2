@@ -12,11 +12,11 @@ public class ContactCreationTests extends TestBase{
 
     @Test
     public void testContactCreation() {
-        app.getNavigationHelper().gotoGroupPage();
-        if (!app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroup(new GroupData("test1", null, "test3"));
+        app.goTo().groupPage();
+        if (app.group().list().size() == 0) {
+            app.group().create(new GroupData("test1", null, "test3"));
         } else {
-            app.getNavigationHelper().goToHomePage();
+            app.goTo().goToHomePage();
         }
         ContactData contact = new ContactData("Test1", "Test2",
                 "Test Address", "0000000000",
