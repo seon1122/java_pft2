@@ -1,31 +1,37 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.List;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactDeletionTests extends TestBase {
 
+    @BeforeMethod
+    public void ensurePreconditions() {
+        app.goTo().goToHomePage();
+        ContactData contact = new ContactData()
+                .withName("Test1").withLast("Test2").withAddress("Test Address")
+                .withMobile("0000000000").withEmail("test@email.com").withGroup("test1");
+        if (app.contact().all().size() == 0) {
+            app.contact().createContact(contact, true);
+        }
+    }
+
     @Test
     public void contactDeletionTest() {
+        Contacts before = app.contact().all();
+        ContactData deletedContact = before.iterator().next();
+        app.contact().delete(deletedContact);
         app.goTo().goToHomePage();
-        ContactData contact = new ContactData("Test1", "Test2",
-                "Test Address", "0000000000",
-                "test@email.com", "test1");
-        if (!app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(contact, true);
-        }
-        List<ContactData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().selectContact(before.size() - 1);
-        app.getContactHelper().deleteSelectedContacts();
-        app.getContactHelper().acceptContactDeletionAlert();
-        app.goTo().goToHomePage();
-        List<ContactData> after = app.getContactHelper().getContactList();
+        Contacts after = app.contact().all();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(before.size() - 1);
-        Assert.assertEquals(after, before);
+        assertThat(after, equalTo(before.without(deletedContact)));
     }
 }
