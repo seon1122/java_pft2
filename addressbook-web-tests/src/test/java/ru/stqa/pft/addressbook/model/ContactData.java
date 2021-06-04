@@ -7,9 +7,70 @@ public class ContactData {
     private String lastname;
     private String address;
     private String mobile;
+    private String home;
+    private String work;
+    private String allPhones;
     private String email;
+    private String email2;
+    private String email3;
+    private String allEmails;
+
+    public String getAllEmails() {
+        return allEmails;
+    }
+
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return this;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public ContactData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public String getEmail3() {
+        return email3;
+    }
+
+    public ContactData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
     private String group;
     private int id = Integer.MAX_VALUE;
+
+    public String getAllPhones() {
+        return allPhones;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+
+    public String getHome() {
+        return home;
+    }
+
+    public ContactData withHome(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public String getWork() {
+        return work;
+    }
+
+    public ContactData withWork(String work) {
+        this.work = work;
+        return this;
+    }
 
     public ContactData withId(int id) {
         this.id = id;

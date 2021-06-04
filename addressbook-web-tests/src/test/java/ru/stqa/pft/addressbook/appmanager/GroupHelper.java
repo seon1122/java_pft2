@@ -5,11 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
-
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase{
 
@@ -38,7 +34,6 @@ public class GroupHelper extends HelperBase{
         submitGroupModification();
         returntoGroupPage();
     }
-
 
     public void initGroupCreation() {
         click(By.name("new"));
