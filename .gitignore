@@ -6,7 +6,13 @@ gradle-app.setting
 
 **.idea/**
 
-.class
+*.class
+
+tmp/
+
+*.html
+
+*.bin
 
 *.gradle
 
