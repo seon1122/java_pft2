@@ -64,7 +64,7 @@ case "`uname`" in
     ;;
 esac
 
-CLASSPATH=$APP_HOME/lib/sandbox.jar
+CLASSPATH=$APP_HOME/lib/sandbox.jar:$APP_HOME/lib/testng-6.9.10.jar:$APP_HOME/lib/hamcrest-2.2.jar:$APP_HOME/lib/jcommander-1.48.jar:$APP_HOME/lib/bsh-2.0b4.jar
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then

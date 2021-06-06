@@ -32,6 +32,7 @@ public class GroupHelper extends HelperBase{
         initGroupModification();
         fillGroupForm(group);
         submitGroupModification();
+        groupCache = null;
         returntoGroupPage();
     }
 

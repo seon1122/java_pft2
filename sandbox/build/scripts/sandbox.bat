@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\sandbox.jar
+set CLASSPATH=%APP_HOME%\lib\sandbox.jar;%APP_HOME%\lib\testng-6.9.10.jar;%APP_HOME%\lib\hamcrest-2.2.jar;%APP_HOME%\lib\jcommander-1.48.jar;%APP_HOME%\lib\bsh-2.0b4.jar
 
 @rem Execute sandbox
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SANDBOX_OPTS%  -classpath "%CLASSPATH%" MyFirstProgram %CMD_LINE_ARGS%

@@ -71,6 +71,7 @@ public class ContactHelper extends HelperBase {
         clickAddNewContact();
         fillContactForm(data, creation);
         submitContactCreation();
+        contactCache = null;
         returnToHomePage();
     }
 
@@ -78,18 +79,29 @@ public class ContactHelper extends HelperBase {
     public void delete(ContactData data) {
         selectContactById(data.getId());
         deleteSelectedContacts();
+        contactCache = null;
         acceptContactDeletionAlert();
+    }
+
+    public int count() {
+        return wd.findElements(By.cssSelector("tr[name=entry]")).size();
     }
 
     public void modify(ContactData contact, boolean creation) {
         initContactEditById(contact.getId());
         fillContactForm(contact, creation);
         submitContactModification();
+        contactCache = null;
         returnToHomePage();
     }
 
+    private Contacts contactCache = null;
+
     public Contacts all() {
-        Contacts contacts = new Contacts();
+        if (contactCache != null) {
+            return new Contacts(contactCache);
+        }
+        contactCache = new Contacts();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
         for (WebElement element : elements) {
             List<WebElement> cells = element.findElements(By.tagName("td"));
@@ -98,10 +110,9 @@ public class ContactHelper extends HelperBase {
             String allphones = cells.get(5).getText();
             String allEmails = cells.get(4).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactData contact = new ContactData().withName(firstName).withLast(lastName).withId(id).withAllPhones(allphones).withAllEmails(allEmails);
-            contacts.add(contact);
+            contactCache.add(new ContactData().withName(firstName).withLast(lastName).withId(id).withAllPhones(allphones).withAllEmails(allEmails));
         }
-        return contacts;
+        return new Contacts(contactCache);
     }
 
     public ContactData infoFromEditForm(ContactData contact) {
