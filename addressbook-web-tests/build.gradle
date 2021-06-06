@@ -10,7 +10,8 @@ dependencies {
     compile 'com.beust:jcommander:1.81'
     compile 'com.thoughtworks.xstream:xstream:1.4.17'
     compile 'com.google.code.gson:gson:2.8.7'
-    compile  'org.hamcrest:hamcrest:2.2'
+    compile 'org.hamcrest:hamcrest:2.2'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
 }
 
 task testGroups(type: Test) {
