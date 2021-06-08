@@ -3,27 +3,46 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
     @Expose
+    @Column(name = "firstname")
     private String firstname;
     @Expose
+    @Column(name = "lastname")
     private String lastname;
+    @Transient
     private String address;
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobile;
     @Expose
+    @Column(name = "home")
+    @Type(type = "text")
     private String home;
+    @Column(name = "work")
+    @Type(type = "text")
     private String work;
+    @Transient
     private String allPhones;
     @Expose
+    @Transient
     private String email;
+    @Transient
     private String email2;
+    @Transient
     private String email3;
+    @Transient
     private String allEmails;
+    @Transient
     private File photo;
 
     public File getPhoto() {
@@ -63,9 +82,21 @@ public class ContactData {
     }
 
     @Expose
+    @Transient
     private String group;
     @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", id=" + id +
+                '}';
+    }
 
     public String getAllPhones() {
         return allPhones;
@@ -167,13 +198,5 @@ public class ContactData {
     public String getGroup() { return  group; }
 
     public int getId() { return id; }
-
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                '}';
-    }
 
 }
