@@ -23,7 +23,7 @@ public class ContactData {
     private String address;
     @Column(name = "mobile")
     @Type(type = "text")
-    private String mobile;
+    private String mobile = "";
     @Expose
     @Column(name = "home")
     @Type(type = "text")
@@ -34,8 +34,9 @@ public class ContactData {
     @Transient
     private String allPhones;
     @Expose
-    @Transient
-    private String email;
+    @Column(name = "email")
+    @Type(type = "text")
+    private String email = "";
     @Transient
     private String email2;
     @Transient
@@ -85,6 +86,7 @@ public class ContactData {
     @Transient
     private String group;
     @XStreamOmitField
+    @Expose
     @Id
     @Column(name = "id")
     private int id = Integer.MAX_VALUE;
@@ -94,8 +96,27 @@ public class ContactData {
         return "ContactData{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(lastname, that.lastname) &&
+                Objects.equals(mobile, that.mobile) &&
+                Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, lastname, mobile, email, id);
     }
 
     public String getAllPhones() {
@@ -138,21 +159,6 @@ public class ContactData {
     public ContactData withLast(String lastname) {
         this.lastname = lastname;
         return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstname, lastname, id);
     }
 
     public ContactData withAddress(String address) {
