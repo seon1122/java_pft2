@@ -17,7 +17,7 @@ public class ContactPhoneTests extends TestBase {
         app.goTo().goToHomePage();
         ContactData contact = new ContactData()
                 .withName("Test1").withLast("Test2").withAddress("Test Address")
-                .withMobile("+0000000000").withEmail("test@email.com").withGroup("test1");
+                .withMobile("+0000000000").withEmail("test@email.com");
         if (app.db().contacts().size() == 0) {
             app.contact().createContact(contact, true);
         }

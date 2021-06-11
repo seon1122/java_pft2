@@ -70,7 +70,7 @@ public class ContactDataGenerator {
             contacts.add(new ContactData().withName(String.format("Firstname %s", i))
                     .withLast(String.format("Lastname %s", i))
                     .withHome(String.format("+012345" + "%s", i))
-                    .withEmail(String.format("test" + "%s" + "@email.com", i)).withGroup(String.format("test %s", i)));
+                    .withEmail(String.format("test" + "%s" + "@email.com", i)));
         }
         return contacts;
     }

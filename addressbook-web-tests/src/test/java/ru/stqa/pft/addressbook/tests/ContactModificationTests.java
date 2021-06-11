@@ -22,7 +22,7 @@ public class ContactModificationTests extends TestBase{
                 app.goTo().goToHomePage();
             }
             app.contact().createContact(new ContactData().withName("Test1").withLast("Test2").withAddress("Test Address")
-                    .withMobile("+0000000000").withEmail("test@email.com").withGroup("test1"), true);
+                    .withMobile("+0000000000").withEmail("test@email.com"), true);
         }
     }
 

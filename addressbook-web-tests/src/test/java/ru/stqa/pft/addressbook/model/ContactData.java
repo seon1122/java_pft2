@@ -7,7 +7,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -45,6 +47,15 @@ public class ContactData {
     private String allEmails;
     @Transient
     private File photo;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<>();
+    @XStreamOmitField
+    @Expose
+    @Id
+    @Column(name = "id")
+    private int id = Integer.MAX_VALUE;
+
 
     public File getPhoto() {
         return photo;
@@ -82,14 +93,9 @@ public class ContactData {
         return this;
     }
 
-    @Expose
-    @Transient
-    private String group;
-    @XStreamOmitField
-    @Expose
-    @Id
-    @Column(name = "id")
-    private int id = Integer.MAX_VALUE;
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
 
     @Override
     public String toString() {
@@ -100,6 +106,11 @@ public class ContactData {
                 ", email='" + email + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
     }
 
     @Override
@@ -176,11 +187,6 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
-
     public String getFirstname() {
         return firstname;
     }
@@ -201,8 +207,5 @@ public class ContactData {
         return email;
     }
 
-    public String getGroup() { return  group; }
-
     public int getId() { return id; }
-
 }
