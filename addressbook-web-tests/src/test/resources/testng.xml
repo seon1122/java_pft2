@@ -4,7 +4,6 @@
     <test name="All">
         <classes>
             <class name="ru.stqa.pft.addressbook.tests.ContactCreationTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.ContactModificationTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactDeletionTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactPhoneTests"/>
             <class name="ru.stqa.pft.addressbook.tests.GroupModificationTests"/>
