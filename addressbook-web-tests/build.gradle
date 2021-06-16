@@ -49,3 +49,21 @@ task testContacts(type: Test) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
 }
+
+test {
+    useTestNG {
+        suites 'src/test/resources/testng.xml'
+    }
+
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+
+    if (project.hasProperty('targer')) {
+        systemProperty 'browser', "${target}"
+    }
+
+    if (project.hasProperty('verifyUI')) {
+        systemProperty 'verifyUI', "${verifyUI}"
+    }
+}
