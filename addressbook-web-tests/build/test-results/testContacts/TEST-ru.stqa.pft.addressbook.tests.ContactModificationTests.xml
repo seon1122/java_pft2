@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.ContactModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-09T01:40:31" hostname="Vladyslavs-MacBook-Pro.local" time="2.821">
+  <properties/>
+  <testcase name="contactModificationTest" classname="ru.stqa.pft.addressbook.tests.ContactModificationTests" time="2.821"/>
+  <system-out><![CDATA[21:40:29.579 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test contactModificationTest with parameters []
+Hibernate: select contactdat0_.id as id1_0_, contactdat0_.firstname as firstnam2_0_, contactdat0_.home as home3_0_, contactdat0_.lastname as lastname4_0_, contactdat0_.mobile as mobile5_0_, contactdat0_.work as work6_0_ from addressbook contactdat0_ where deprecated='0000-00-00'
+ContactData{firstname='Test1Edit', lastname='Test2Edit', id=151}
+Hibernate: select contactdat0_.id as id1_0_, contactdat0_.firstname as firstnam2_0_, contactdat0_.home as home3_0_, contactdat0_.lastname as lastname4_0_, contactdat0_.mobile as mobile5_0_, contactdat0_.work as work6_0_ from addressbook contactdat0_ where deprecated='0000-00-00'
+ContactData{firstname='Test1Edit', lastname='Test2Edit', id=151}
+Hibernate: select contactdat0_.id as id1_0_, contactdat0_.firstname as firstnam2_0_, contactdat0_.home as home3_0_, contactdat0_.lastname as lastname4_0_, contactdat0_.mobile as mobile5_0_, contactdat0_.work as work6_0_ from addressbook contactdat0_ where deprecated='0000-00-00'
+ContactData{firstname='Test1Edit', lastname='Test2Edit', id=151}
+21:40:34.613 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test contactModificationTest with parameters []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

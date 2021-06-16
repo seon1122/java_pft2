@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.GroupCreationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-09T01:42:32" hostname="Vladyslavs-MacBook-Pro.local" time="3.145">
+  <properties/>
+  <testcase name="testGroupCreation[0](GroupData{name='test 0', id='2147483647'})" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="1.408"/>
+  <testcase name="testGroupCreation[1](GroupData{name='test 1', id='2147483647'})" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.9"/>
+  <testcase name="testGroupCreation[2](GroupData{name='test 2', id='2147483647'})" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.829"/>
+  <system-out><![CDATA[21:42:32.527 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreation with parameters [GroupData{name='test 0', id='2147483647'}]
+Hibernate: select groupdata0_.group_id as group_id1_1_, groupdata0_.group_footer as group_fo2_1_, groupdata0_.group_header as group_he3_1_, groupdata0_.group_name as group_na4_1_ from group_list groupdata0_
+GroupData{name='test1', id='155'}
+Hibernate: select groupdata0_.group_id as group_id1_1_, groupdata0_.group_footer as group_fo2_1_, groupdata0_.group_header as group_he3_1_, groupdata0_.group_name as group_na4_1_ from group_list groupdata0_
+GroupData{name='test1', id='155'}
+GroupData{name='test 0', id='156'}
+21:42:33.939 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreation with parameters [GroupData{name='test 0', id='156'}]
+21:42:33.940 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreation with parameters [GroupData{name='test 1', id='2147483647'}]
+Hibernate: select groupdata0_.group_id as group_id1_1_, groupdata0_.group_footer as group_fo2_1_, groupdata0_.group_header as group_he3_1_, groupdata0_.group_name as group_na4_1_ from group_list groupdata0_
+GroupData{name='test1', id='155'}
+GroupData{name='test 0', id='156'}
+Hibernate: select groupdata0_.group_id as group_id1_1_, groupdata0_.group_footer as group_fo2_1_, groupdata0_.group_header as group_he3_1_, groupdata0_.group_name as group_na4_1_ from group_list groupdata0_
+GroupData{name='test1', id='155'}
+GroupData{name='test 0', id='156'}
+GroupData{name='test 1', id='157'}
+21:42:34.842 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreation with parameters [GroupData{name='test 1', id='157'}]
+21:42:34.843 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreation with parameters [GroupData{name='test 2', id='2147483647'}]
+Hibernate: select groupdata0_.group_id as group_id1_1_, groupdata0_.group_footer as group_fo2_1_, groupdata0_.group_header as group_he3_1_, groupdata0_.group_name as group_na4_1_ from group_list groupdata0_
+GroupData{name='test1', id='155'}
+GroupData{name='test 0', id='156'}
+GroupData{name='test 1', id='157'}
+Hibernate: select groupdata0_.group_id as group_id1_1_, groupdata0_.group_footer as group_fo2_1_, groupdata0_.group_header as group_he3_1_, groupdata0_.group_name as group_na4_1_ from group_list groupdata0_
+GroupData{name='test1', id='155'}
+GroupData{name='test 0', id='156'}
+GroupData{name='test 1', id='157'}
+GroupData{name='test 2', id='158'}
+21:42:35.674 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreation with parameters [GroupData{name='test 2', id='158'}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
