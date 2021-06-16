@@ -50,7 +50,7 @@ task testContacts(type: Test) {
     }
 }
 
-test {
+task testAll(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng.xml'
     }
