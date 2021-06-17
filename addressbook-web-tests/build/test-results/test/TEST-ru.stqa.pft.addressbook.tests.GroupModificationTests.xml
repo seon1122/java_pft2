@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.GroupModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-17T01:42:16" hostname="Vladyslavs-MacBook-Pro.local" time="0.81">
+  <properties/>
+  <testcase name="testGroupModification" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="0.81"/>
+  <system-out><![CDATA[21:42:16.838 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupModification with parameters []
+Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
+GroupData{name='test1', id='180'}
+GroupData{name='test1', id='182'}
+GroupData{name='test 0', id='184'}
+GroupData{name='test 1', id='185'}
+GroupData{name='test 2', id='186'}
+Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
+GroupData{name='test1', id='180'}
+GroupData{name='test1', id='182'}
+GroupData{name='test 0', id='184'}
+GroupData{name='test 1', id='185'}
+GroupData{name='test 2', id='186'}
+Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
+GroupData{name='test1', id='180'}
+GroupData{name='test1', id='182'}
+GroupData{name='test 0', id='184'}
+GroupData{name='test 1', id='185'}
+GroupData{name='test 2', id='186'}
+21:42:17.661 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupModification with parameters []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
